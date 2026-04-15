@@ -14,7 +14,6 @@ const accountDataValuesToCheck = [
 ]
 
 describe("Automation Exercises", () => {
-    // Helper to ensure page is loaded
     const verifyHomePage = () => {
         cy.visit("https://automationexercise.com/")
         cy.get("body").should("be.visible")
@@ -28,7 +27,6 @@ describe("Automation Exercises", () => {
 
         it("Test Case 1: Register User", () => {
             cy.signupUser(userCredentials)
-            // Added check to ensure name exists before login check
             cy.contains(`Logged in as ${userCredentials.name}`, { timeout: 10000 }).should('be.visible')
             cy.contains("Delete Account").click()
             cy.getElementAndAssertText('[data-qa="account-deleted"]', "Account Deleted!")
@@ -36,7 +34,6 @@ describe("Automation Exercises", () => {
         })
 
         it("Test Case 5: Register User with existing email", () => {
-            // Need to register the user first via API so they 'exist'
             cy.registerUserByAPI(userCredentials)
             cy.visit("https://automationexercise.com/login")
             cy.fillSignupForm(userCredentials)
@@ -51,14 +48,10 @@ describe("Automation Exercises", () => {
 
         it("Test Case 9: Search Product", () => {
             cy.contains("Products").click()
-            // Improved URL assertion
             cy.url().should("include", "/products")
-
             cy.get("#search_product").type("Premium Polo T-Shirts")
             cy.get("#submit_search").click()
-
             cy.getElementAndAssertText(".title", "Searched Products")
-            // Use 'be.visible' to ensure the product actually rendered
             cy.get(".product-image-wrapper").should('have.length', 1).and('be.visible')
         })
 
@@ -77,7 +70,6 @@ describe("Automation Exercises", () => {
             cy.scrollTo('bottom')
             cy.get("#footer").should('be.visible')
             cy.get("#scrollUp").click()
-            // Verify header text is now in view
             cy.contains("Full-Fledged practice website").should('be.visible')
         })
 
