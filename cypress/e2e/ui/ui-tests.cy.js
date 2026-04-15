@@ -379,10 +379,7 @@ describe("UI Tests", () => {
             cy.contains("Cart").click()
             cy.get("body").should("be.visible")
 
-            cy.url().should(
-                "contain",
-                "https://automationexercise.com/view_cart",
-            )
+            cy.url().should("contain","https://automationexercise.com/view_cart",)
 
             cy.contains("Proceed To Checkout").click()
             accountDataValuesToCheck.forEach((value) => {
@@ -391,10 +388,7 @@ describe("UI Tests", () => {
             })
 
             cy.contains("Delete Account").click()
-            cy.getElementAndAssertText(
-                '[data-qa="account-deleted"]',
-                "Account Deleted!",
-            )
+            cy.getElementAndAssertText('[data-qa="account-deleted"]',"Account Deleted!",)
         })
 
         it("Test Case 24: Download Invoice after purchase order", () => {
@@ -411,11 +405,7 @@ describe("UI Tests", () => {
             cy.get(".modal-content a").click()
             cy.fillSignupForm(userCredentials)
             cy.fillAccountInformationForm(userCredentials)
-            cy.getElementAndAssertText(
-                '[data-qa="account-created"]',
-                "Account Created!",
-            )
-
+            cy.getElementAndAssertText('[data-qa="account-created"]',"Account Created!",)
             cy.get("[data-qa=continue-button]").click()
             cy.contains(`Logged in as ${userCredentials.name}`)
             cy.contains("Cart").click()
@@ -431,27 +421,16 @@ describe("UI Tests", () => {
             cy.get(".title").should("contain.text", "Order Placed!")
             cy.contains("Congratulations! Your order has been confirmed!")
             cy.contains("Download Invoice").click()
-            cy.downloadFile(
-                "https://automationexercise.com/payment_done/1400",
-                "Downloads",
-                "invoice.txt",
-            )
-
+            cy.downloadFile("https://automationexercise.com/payment_done/1400","Downloads","invoice.txt",)
             cy.contains("Delete Account").click()
-            cy.getElementAndAssertText(
-                '[data-qa="account-deleted"]',
-                "Account Deleted!",
-            )
+            cy.getElementAndAssertText('[data-qa="account-deleted"]',"Account Deleted!",)
         })
 
         it("Test Case 25: Verify Scroll Up using 'Arrow' button and Scroll Down functionality", () => {
             cy.get("#footer").scrollIntoView()
             cy.getElementAndAssertText(".single-widget > h2", "Subscription")
             cy.get("#scrollUp").click()
-            cy.getElementAndAssertText(
-                "#slider-carousel",
-                "Full-Fledged practice website for Automation Engineers",
-            )
+            cy.getElementAndAssertText("#slider-carousel","Full-Fledged practice website for Automation Engineers",)
         })
 
         it("Test Case 26: Verify Scroll Up without 'Arrow' button and Scroll Down functionality", () => {
@@ -460,7 +439,6 @@ describe("UI Tests", () => {
             })
 
             cy.getElementAndAssertText(".single-widget > h2", "Subscription")
-
             cy.window().then((win) => {
                 win.scrollTo(0, 0)
             })
