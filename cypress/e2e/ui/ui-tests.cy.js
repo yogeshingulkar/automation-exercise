@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-const userCredentials = require("../../fixtures/user-credentials.json")
+const userCredentials = require("../../fixtures/yogesh-credentials.json")
 const accountDataValuesToCheck = [
     userCredentials.firstName,
     userCredentials.lastName,
