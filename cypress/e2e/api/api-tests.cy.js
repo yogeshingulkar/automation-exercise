@@ -29,14 +29,7 @@ describe("API Tests", () => {
 
             parsedBody.products.forEach((product) => {
                 expect(product).to.be.an("object")
-
-                expect(product).to.have.all.keys(
-                    "brand",
-                    "category",
-                    "id",
-                    "name",
-                    "price",
-                )
+                expect(product).to.have.all.keys("brand","category","id","name","price",)
             })
         })
     })
@@ -50,9 +43,7 @@ describe("API Tests", () => {
             console.log(res)
             const parsedBody = JSON.parse(res.body)
             expect(parsedBody.responseCode).to.eq(405)
-            expect(parsedBody.message).to.eq(
-                "This request method is not supported.",
-            )
+            expect(parsedBody.message).to.eq("This request method is not supported.",)
         })
     })
 
@@ -83,9 +74,7 @@ describe("API Tests", () => {
             console.log(res)
             const parsedBody = JSON.parse(res.body)
             expect(parsedBody.responseCode).to.eq(405)
-            expect(parsedBody.message).to.eq(
-                "This request method is not supported.",
-            )
+            expect(parsedBody.message).to.eq("This request method is not supported.",)
         })
     })
 
@@ -107,14 +96,7 @@ describe("API Tests", () => {
 
             parsedBody.products.forEach((product) => {
                 expect(product).to.be.an("object")
-
-                expect(product).to.have.all.keys(
-                    "brand",
-                    "category",
-                    "id",
-                    "name",
-                    "price",
-                )
+                expect(product).to.have.all.keys("brand","category","id","name","price",)
             })
         })
     })
@@ -129,9 +111,7 @@ describe("API Tests", () => {
             console.log(res)
             const parsedBody = JSON.parse(res.body)
             expect(parsedBody.responseCode).to.eq(400)
-            expect(parsedBody.message).to.eq(
-                "Bad request, search_product parameter is missing in POST request.",
-            )
+            expect(parsedBody.message).to.eq("Bad request, search_product parameter is missing in POST request.",)
         })
     })
 
@@ -193,9 +173,7 @@ describe("API Tests", () => {
             console.log(res)
             const parsedBody = JSON.parse(res.body)
             expect(parsedBody.responseCode).to.eq(400)
-            expect(parsedBody.message).to.eq(
-                "Bad request, email or password parameter is missing in POST request.",
-            )
+            expect(parsedBody.message).to.eq("Bad request, email or password parameter is missing in POST request.",)
         })
     })
 
@@ -213,9 +191,7 @@ describe("API Tests", () => {
             console.log(res)
             const parsedBody = JSON.parse(res.body)
             expect(parsedBody.responseCode).to.eq(405)
-            expect(parsedBody.message).to.eq(
-                "This request method is not supported.",
-            )
+            expect(parsedBody.message).to.eq("This request method is not supported.",)
         })
     })
 
