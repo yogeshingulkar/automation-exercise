@@ -1,6 +1,7 @@
 /// <reference types="cypress" />
 
 const userCredentials = require("../../fixtures/yogesh-credentials.json")
+
 const accountDataValuesToCheck = [
     userCredentials.firstName,
     userCredentials.lastName,
@@ -72,7 +73,6 @@ describe("UI Tests", () => {
         it("Test Case 6: Contact Us Form", () => {
             cy.contains("Contact us").click()
             cy.getElementAndAssertText("div.contact-form > .title","Get In Touch",)
-
             cy.get('[data-qa="name"]').type(userCredentials.name)
             cy.get('[data-qa="email"]').type(userCredentials.email)
             cy.get('[data-qa="subject"]').type("I would like to be in contact!")
@@ -396,10 +396,7 @@ describe("UI Tests", () => {
             cy.contains("Continue Shopping").click()
             cy.contains("Cart").click()
             cy.get("body").should("be.visible")
-            cy.url().should(
-                "contain",
-                "https://automationexercise.com/view_cart",
-            )
+            cy.url().should("contain","https://automationexercise.com/view_cart",)
 
             cy.contains("Proceed To Checkout").click()
             cy.get(".modal-content a").click()
