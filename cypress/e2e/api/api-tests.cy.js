@@ -1,7 +1,6 @@
 /// <reference types="cypress" />
 
 const userCredentials = require("../../fixtures/yogesh-credentials.json")
-
 describe("API Tests", () => {
     beforeEach(() => {
         cy.request({
@@ -407,28 +406,17 @@ describe("API Tests", () => {
             const parsedBody = JSON.parse(res.body)
             console.log(parsedBody)
             expect(parsedBody.responseCode).to.eq(200)
-
             expect(parsedBody.user).to.not.be.null
             expect(parsedBody.user).to.be.an("object")
-
-            expect(parsedBody.user).to.have.all.keys(
-                "address1",
-                "address2",
-                "birth_day",
-                "birth_month",
-                "birth_year",
-                "city",
-                "company",
-                "country",
-                "email",
-                "first_name",
-                "id",
-                "last_name",
-                "name",
-                "state",
-                "title",
-                "zipcode",
-            )
+            expect(parsedBody.user).to.have.all.keys("address1","address2","birth_day","birth_month","birth_year","city","company","country",
+                                                     "email","first_name","id","last_name","name","state","title","zipcode",)
         })
     })
 })
+
+
+
+
+
+
+
