@@ -15,6 +15,7 @@ describe("API Tests", () => {
         })
     })
 
+    
     it("API 1: Get All Products List", () => {
         cy.request({
             method: "GET",
@@ -33,6 +34,7 @@ describe("API Tests", () => {
         })
     })
 
+    
     it("API 2: POST To All Products List", () => {
         cy.request({
             method: "POST",
@@ -46,6 +48,7 @@ describe("API Tests", () => {
         })
     })
 
+    
     it("API 3: Get All Brands List", () => {
         cy.request({
             method: "GET",
@@ -64,6 +67,8 @@ describe("API Tests", () => {
         })
     })
 
+
+    
     it("API 4: PUT To All Brands List", () => {
         cy.request({
             method: "PUT",
