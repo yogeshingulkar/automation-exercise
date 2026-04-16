@@ -24,6 +24,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+
 Cypress.Commands.add('createAccountViaAPI', (user) => {
     return cy.request({
         method: "POST",
@@ -101,9 +102,10 @@ Cypress.Commands.add('signupUser', (user) => {
     cy.contains("Signup / Login").click();
     cy.get('[data-qa="signup-name"]').type(user.name);
     cy.get('[data-qa="signup-email"]').type(user.email);
+    
     cy.get('[data-qa="signup-button"]').click();
-
     cy.get('#id_gender1').click();
+
     cy.get('[data-qa="password"]').type(user.password);
     cy.get('[data-qa="days"]').select(user.days);
     cy.get('[data-qa="months"]').select(user.months);
@@ -111,6 +113,7 @@ Cypress.Commands.add('signupUser', (user) => {
 
     cy.get('[data-qa="first_name"]').type(user.firstName);
     cy.get('[data-qa="last_name"]').type(user.lastName);
+    
     cy.get('[data-qa="address"]').type(user.address);
     cy.get('[data-qa="country"]').select(user.country);
     cy.get('[data-qa="state"]').type(user.state);
