@@ -1,3 +1,4 @@
+// 1. CRUD operations - On Product, brand & Login API's
 /// <reference types="cypress" />
 
 const userCredentials = require("../../fixtures/yogesh-credentials.json")
