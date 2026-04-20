@@ -377,7 +377,6 @@ describe("API Tests", () => {
     })
 
     it("API 14: GET user account detail by email", () => {
-        // User must exist to get their details
         cy.request({
             method: "POST",
             url: "https://automationexercise.com/api/createAccount",
