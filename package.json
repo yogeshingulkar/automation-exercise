@@ -1,16 +1,34 @@
 {
-  "name": "automation-exericse",
-  "version": "1.0.0",
-  "description": "",
+  "name": "automation-exercise",
+  "version": "2.0.0",
+  "description": "Cypress TypeScript Automation Framework for Automation Exercise Website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:chrome": "cypress run --browser chrome",
+    "cy:run:headless": "cypress run --headless",
+    "test": "cypress run",
+    "report:merge": "mochawesome-merge cypress/reports/*.json > cypress/reports/merged-report.json",
+    "report:generate": "marge cypress/reports/merged-report.json --reportDir cypress/reports/final"
   },
-  "keywords": [],
+  "keywords": [
+    "cypress",
+    "typescript",
+    "automation",
+    "testing",
+    "e2e"
+  ],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "cypress": "^15.13.1"
+    "@types/node": "^20.14.0",
+    "cypress": "^15.13.1",
+    "cypress-mochawesome-reporter": "^4.0.2",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.1",
+    "mochawesome-report-generator": "^6.3.2",
+    "typescript": "^5.5.0"
   }
 }
